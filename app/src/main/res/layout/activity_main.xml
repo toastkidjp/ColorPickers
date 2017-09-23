@@ -35,4 +35,22 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <ImageView
+        android:id="@+id/left"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="left|center_vertical"
+        android:src="@drawable/ic_left"
+        android:visibility="gone"
+        />
+    <ImageView
+        android:id="@+id/right"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="right|center_vertical"
+        android:src="@drawable/ic_right"
+        />
+
 </android.support.design.widget.CoordinatorLayout>

@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.activity_main.*
  */
 class MainActivity : AppCompatActivity(), OnColorSelect {
 
+    /**
+     * Contents pager's adapter.
+     */
     private var mSectionsPagerAdapter: SectionsPagerAdapter? = null
 
     /**
@@ -35,8 +38,38 @@ class MainActivity : AppCompatActivity(), OnColorSelect {
 
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
+        initViewPager()
+    }
+
+    /**
+     * Initialize view pager.
+     */
+    private fun initViewPager() {
         mViewPager = findViewById<View>(R.id.container) as ViewPager
         mViewPager?.adapter = mSectionsPagerAdapter
+        mViewPager?.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) = Unit
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int)
+                = Unit//onNewPage(position)
+
+            override fun onPageSelected(position: Int) = onNewPage(position)
+
+            private fun onNewPage(position: Int) {
+                if (position == 0) {
+                    left.visibility = View.GONE
+                } else {
+                    left.visibility = View.VISIBLE
+                }
+                if (position == ((mSectionsPagerAdapter?.count ?: 1) - 1)) {
+                    right.visibility = View.GONE
+                } else {
+                    right.visibility = View.VISIBLE
+                }
+            }
+        })
+        left.setOnClickListener  { mViewPager?.currentItem = (mViewPager?.currentItem ?: 0) - 1 }
+        right.setOnClickListener { mViewPager?.currentItem = (mViewPager?.currentItem ?: 0) + 1 }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
