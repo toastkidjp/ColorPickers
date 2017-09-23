@@ -1,5 +1,7 @@
 package jp.toastkid.colorpickers
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -38,7 +40,6 @@ class MainActivity : AppCompatActivity(), OnColorSelect {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -53,7 +54,15 @@ class MainActivity : AppCompatActivity(), OnColorSelect {
                 LicenseViewer(this).invoke()
                 return true
             }
-            else -> super.onOptionsItemSelected(item)
+            R.id.action_author -> {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse("market://search?q=pub:toastkidjp")
+                startActivity(intent)
+                return true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 

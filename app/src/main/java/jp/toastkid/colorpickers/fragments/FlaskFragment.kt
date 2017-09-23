@@ -8,6 +8,8 @@ import jp.toastkid.colorpickers.R
 import kotlinx.android.synthetic.main.fragment_quad_flask.*
 
 /**
+ * <a href="https://github.com/QuadFlask/colorpicker">QuadFlask/colorpicker</a>
+ *
  * @author toastkidjp
  */
 class FlaskFragment : BaseColorPickerFragment() {
@@ -18,8 +20,7 @@ class FlaskFragment : BaseColorPickerFragment() {
             savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val rootView = inflater?.inflate(R.layout.fragment_quad_flask, container, false)
-        return rootView
+        return inflater?.inflate(R.layout.fragment_quad_flask, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

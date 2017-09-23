@@ -8,7 +8,8 @@ import jp.toastkid.colorpickers.R
 import kotlinx.android.synthetic.main.fragment_holo_color_picker.*
 
 /**
- * HoloColorPicker.
+ * <a href="https://github.com/LarsWerkman/HoloColorPicker">HoloColorPicker</a>'s
+ * sample implementation.
  *
  * @author toastkidjp
  */
@@ -20,8 +21,7 @@ class HoloColorPickerFragment : BaseColorPickerFragment() {
             savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        val rootView = inflater?.inflate(R.layout.fragment_holo_color_picker, container, false)
-        return rootView
+        return inflater?.inflate(R.layout.fragment_holo_color_picker, container, false)
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
