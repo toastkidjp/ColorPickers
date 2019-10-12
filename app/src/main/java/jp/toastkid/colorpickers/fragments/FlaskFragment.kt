@@ -15,15 +15,15 @@ import kotlinx.android.synthetic.main.fragment_quad_flask.*
 class FlaskFragment : BaseColorPickerFragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater?,
+            inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater?.inflate(R.layout.fragment_quad_flask, container, false)
+        return inflater.inflate(R.layout.fragment_quad_flask, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         color_picker.addOnColorSelectedListener { onColorSelect?.onSelect(it) }
     }

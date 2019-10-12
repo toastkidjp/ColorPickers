@@ -18,15 +18,15 @@ import petrov.kristiyan.colorpicker.ColorPicker
 class KristiyanpFragment : BaseColorPickerFragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater?,
+            inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater?.inflate(R.layout.fragment_kristiyanp, container, false)
+        return inflater.inflate(R.layout.fragment_kristiyanp, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button.setOnClickListener{ _ -> showColorPicker() }
     }
