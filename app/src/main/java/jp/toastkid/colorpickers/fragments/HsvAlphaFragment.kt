@@ -16,15 +16,15 @@ import kotlinx.android.synthetic.main.fragment_hsv_alpha.*
  */
 class HsvAlphaFragment : BaseColorPickerFragment() {
     override fun onCreateView(
-            inflater: LayoutInflater?,
+            inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater?.inflate(R.layout.fragment_hsv_alpha, container, false)
+        return inflater.inflate(R.layout.fragment_hsv_alpha, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         color_picker.addColorObserver { color -> onColorSelect?.onSelect(
                 ColorUtils.setAlphaComponent(color.color, color.alpha)
