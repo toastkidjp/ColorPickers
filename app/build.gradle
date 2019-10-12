@@ -24,17 +24,17 @@ android {
 
 dependencies {
     def supportLibVersion = '28.0.0'
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
-    compile "com.android.support:cardview-v7:${supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibVersion}"
 
-    compile 'com.larswerkman:HoloColorPicker:1.5'
-    compile 'com.github.QuadFlask:colorpicker:0.0.13'
-    compile 'com.jaredrummler:colorpicker:1.0.0'
-    compile 'com.rarepebble:colorpicker:2.2.0'
-    compile 'petrov.kristiyan:colorpicker-library:1.1.5'
-    compile 'com.github.madrapps:pikolo:1.1.6'
+    implementation 'com.larswerkman:HoloColorPicker:1.5'
+    implementation 'com.github.QuadFlask:colorpicker:0.0.13'
+    implementation 'com.jaredrummler:colorpicker:1.0.0'
+    implementation 'com.rarepebble:colorpicker:2.2.0'
+    implementation 'petrov.kristiyan:colorpicker-library:1.1.5'
+    implementation 'com.github.madrapps:pikolo:1.1.6'
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    testCompile 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation 'junit:junit:4.12'
 }
