@@ -6,7 +6,6 @@ import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
-import java.lang.StringBuilder
 import java.util.*
 
 /**
@@ -25,26 +24,26 @@ class LicenseViewer(private val mContext: Context) {
     operator fun invoke() {
         try {
             val assets = mContext.assets
-            val licenseFiles = assets.list(DIRECTORY_OF_LICENSES)
+            val licenseFiles = assets.list(DIRECTORY_OF_LICENSES) ?: return
             val licenseMap = LinkedHashMap<String, String>(licenseFiles.size)
             for (fileName in licenseFiles) {
-                val stream = assets.open(DIRECTORY_OF_LICENSES + "/" + fileName)
-                licenseMap.put(fileName.substring(0, fileName.lastIndexOf(".")), readUtf8(stream))
+                val stream = assets.open("$DIRECTORY_OF_LICENSES/$fileName")
+                licenseMap[fileName.substring(0, fileName.lastIndexOf("."))] = readUtf8(stream)
                 stream.close()
             }
             val items = licenseMap.keys.toTypedArray()
             AlertDialog.Builder(mContext).setTitle("Licenses")
                     .setItems(items
-                    ) { d, index ->
+                    ) { _, index ->
                         AlertDialog.Builder(mContext)
                                 .setTitle(items[index])
                                 .setMessage(licenseMap[items[index]])
                                 .setCancelable(true)
-                                .setPositiveButton("Close") { dialog, i -> dialog.dismiss() }
+                                .setPositiveButton("Close") { dialog, _ -> dialog.dismiss() }
                                 .show()
                     }
                     .setCancelable(true)
-                    .setPositiveButton("Close") { d, i -> d.dismiss() }
+                    .setPositiveButton("Close") { d, _ -> d.dismiss() }
                     .show()
         } catch (e: IOException) {
             e.printStackTrace()
@@ -69,6 +68,6 @@ class LicenseViewer(private val mContext: Context) {
     companion object {
 
         /** Directory name.  */
-        private val DIRECTORY_OF_LICENSES = "licenses"
+        private const val DIRECTORY_OF_LICENSES = "licenses"
     }
 }
